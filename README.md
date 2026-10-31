@@ -24,10 +24,13 @@ App Store: https://apps.apple.com/app/id6798546441
 
 Support page / サポートページ: https://nu-sx.github.io/METEORIUM/
 
-## Privacy / プライバシー
+## Privacy and terms / プライバシーと利用規約
 
 [プライバシーポリシー](https://nu-sx.github.io/METEORIUM/privacy-policy.ja.html) /
 [Privacy Policy](https://nu-sx.github.io/METEORIUM/privacy-policy.en.html)
+
+Meteorium Pro: [利用規約](https://nu-sx.github.io/METEORIUM/terms.ja.html) /
+[Terms of Use](https://nu-sx.github.io/METEORIUM/terms.en.html)
 
 ## Data / データ
 
