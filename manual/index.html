@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<title>Meteorium — ユーザーマニュアル / User Manual</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0d0d0d; color: #c3c2b7;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.75; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1 { color: #fff; font-size: 26px; margin: 8px 0 2px; }
+  h2 { color: #fff; font-size: 19px; margin-top: 34px;
+    border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 6px; }
+  h3 { color: #e8e7df; font-size: 15px; margin-top: 22px; }
+  .sub { color: #898781; margin-bottom: 20px; }
+  .masthead { display: flex; align-items: center; gap: 18px;
+    margin-bottom: 20px; }
+  .masthead img { width: 96px; height: 96px; border-radius: 22px; flex: none; }
+  .masthead h1 { margin-top: 0; }
+  .masthead .sub { margin-bottom: 0; }
+  @media (max-width: 520px) {
+    .masthead { gap: 14px; }
+    .masthead img { width: 68px; height: 68px; border-radius: 16px; }
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid rgba(255,255,255,.14); padding: 7px 10px;
+    text-align: left; vertical-align: top; }
+  th { color: #fff; background: rgba(255,255,255,.05); white-space: nowrap; }
+  code, b.k { color: #86b6ef; font-weight: 600; }
+  ul { padding-left: 22px; }
+  li { margin: 3px 0; }
+  .nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 6px; }
+  .nav a { color: #86b6ef; text-decoration: none; font-size: 13px;
+    border: 1px solid rgba(57,135,229,.4); border-radius: 999px;
+    padding: 4px 14px; }
+  .note { background: rgba(57,135,229,.10); border: 1px solid rgba(57,135,229,.35);
+    border-radius: 10px; padding: 10px 14px; font-size: 14px; }
+  footer { margin-top: 48px; color: #898781; font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; }
+  figure { margin: 18px 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.14); }
+  figcaption { font-size: 12px; color: #898781; margin-top: 6px;
+    text-align: center; }
+  /* the opening screen leads the page — portrait, so it is held narrow */
+  .opening-shot { max-width: 300px; margin: 22px auto 26px; }
+  .hero-vids { display: grid; gap: 16px; margin: 0 0 26px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .hero-vids figure { margin: 0; }
+  .hero-vids video { width: 100%; height: auto; border-radius: 10px;
+    background: #000; display: block; }
+</style>
+</head>
+<body><div class="wrap">
+
+<header class="masthead">
+  <img src="../icon.png" alt="">
+  <div>
+    <h1>Meteorium</h1>
+    <div class="sub">流星ダストトレイル・ビューア — ユーザーマニュアル/
+    User Manual</div>
+  </div>
+</header>
+<figure class="opening-shot">
+  <img src="img/fig_opening.jpg" alt="起動画面 — ロゴとキャッチフレーズ" loading="lazy">
+  <figcaption>起動画面 / Opening</figcaption>
+</figure>
+<div class="hero-vids">
+  <figure><video src="vid/perseids.mp4" poster="vid/perseids_poster.jpg"
+      controls muted loop playsinline preload="none" width="1280" height="720"></video>
+    <figcaption>ペルセウス座流星群のダストトレイルを黄道面北から / The Perseid dust
+      trails seen from ecliptic north</figcaption></figure>
+  <figure><video src="vid/storm.mp4" poster="vid/storm_poster.jpg"
+      controls muted loop playsinline preload="none" width="1280" height="720"></video>
+    <figcaption>1999 年のしし座流星群を地上視点で（ZHR 100000）/ The 1999 Leonid storm
+      from the ground view (ZHR 100000)</figcaption></figure>
+</div>
+<div class="nav">
+  <a href="#ja">日本語</a><a href="#en">English</a><a href="mac.html">Mac 版 / Mac edition</a><a href="#privacy">プライバシー / Privacy</a>
+</div>
+<div class="note">Mac 版をお使いの方は、ウインドウ操作・マウス・キーボードについて
+まとめた<a href="mac.html" style="color:#86b6ef">Mac 版マニュアル</a>もあわせて
+ご覧ください。 / Using the Mac edition? See the
+<a href="mac.html" style="color:#86b6ef">Mac edition manual</a> for windows, mouse
+and keyboard.</div>
+
+<h2 id="ja">日本語マニュアル</h2>
+<p>Meteorium は、流星群のもとになる「ダストトレイル」(彗星が軌道上に残した塵の帯)を
+科学計算に基づいて 3D 表示する天文アプリです。本アプリには、ペルセウス座流星群の母彗星
+109P/スウィフト・タトルが残した <b>8回帰ぶん(1079・1209・1344・1478・1609・1736・
+1862・1992年)のダストトレイル 60,000 粒子</b>が収録されています。粒子の軌道は REBOUND/ReboundX による
+軌道積分(惑星重力+太陽放射圧)で計算し、背景の空には NASA「Deep Star Maps 2020」を
+使用しています。軌道計算も描画もすべて端末内で行い、データ収集・広告はありません(公開データを取得するときだけ通信します)。</p>
+
+<h3>画面の構成</h3>
+<figure><img src="img/fig_overview.jpg" alt="図1: 画面構成 — 中央が3D表示、右がパネル、下部が時間操作バー" loading="lazy"><figcaption>図1: 画面構成 — 中央が3D表示、右がパネル、下部が時間操作バー</figcaption></figure>
+<table>
+<tr><th>場所</th><th>内容</th></tr>
+<tr><td>中央</td><td>3D 表示(ドラッグ=視点回転、ピンチ/ホイール=ズーム)</td></tr>
+<tr><td>右上</td><td>EN/JP(言語切替)、ⓘ(パネル開閉)</td></tr>
+<tr><td>右パネル</td><td>データセット・トレイル凡例・表示設定・視点・粒子設定</td></tr>
+<tr><td>下部バー</td><td>日時(UT)・日付入力・今日・視点・時間操作</td></tr>
+</table>
+<p>パネルと下部バーはつまみをドラッグして移動できます。パネル下端のつまみで表示の長さも
+調整できます。</p>
+<ul>
+<li>下部バー右上の <b class="k">▼</b> ボタンでバー全体を畳めます(小さな ▲ ボタンだけが残り、
+タップで復元)</li>
+<li>iPhone を横向きにすると、速度スライダーは下部バーの2段目に全幅で表示されます</li>
+<li>画面を回転してパネルが画面外に出た場合は、自動で定位置に戻ります</li>
+</ul><figure><img src="img/fig_footer.jpg" alt="図2: 下部バー — 日時・日付入力・今日・視点・時間操作・速度スライダー" loading="lazy"><figcaption>図2: 下部バー — 日時・日付入力・今日・視点・時間操作・速度スライダー</figcaption></figure>
+
+<h3>ダストトレイル(放出年)</h3>
+<figure><img src="img/fig_panel.jpg" alt="図3: 右パネル — データセット・流星群の諸元・トレイル凡例・表示設定" loading="lazy"><figcaption>図3: 右パネル — データセット・流星群の諸元・トレイル凡例・表示設定</figcaption></figure>
+<p>凡例の色付きチップは放出年ごとのトレイルです。タップで個別に表示/非表示を切り替え
+られます。「1992」は前回回帰(1992年12月12日)の最も新しい塵、古い年ほど軌道に沿って
+広がっています。</p>
+
+<h3>表示設定</h3>
+<p>天の川/星座線/星座名/彗星名/地球名/地球型惑星/木星型惑星/惑星/軌道線/
+<b>粒子</b>/放射点。起動時の既定値では星座線・星座名・地球型惑星・放射点が OFF です
+(本アプリは毎回この既定値で起動します)。</p>
+
+<h3>視点</h3>
+<table>
+<tr><th>ボタン</th><th>動作</th></tr>
+<tr><td>黄道面北 / 南</td><td>真上/真下から。押すたびに 45° ずつ回転</td></tr>
+<tr><td>黄緯変化</td><td>現在の黄経を固定し、押すたびに黄緯を 30° ずつ変化</td></tr>
+<tr><td>太陽</td><td>太陽中心に固定。押すたびに ①春分点方向 → ②彗星追尾 → ③地球追尾。
+左上に現在モードを表示。ドラッグしても追尾は継続</td></tr>
+<tr><td>地球</td><td>地上から放射点方向を見る観察視点(下記)</td></tr>
+<tr><td>彗星</td><td>彗星と一緒に移動。押すたびに ①前方カメラ → ②後方カメラ →
+③2画面(左=後方/右=前方)→ ①。左上にカメラ名を表示</td></tr>
+<tr><td>フリー視点</td><td>10秒ごとに視点と倍率が自動で移り変わる観賞モード。
+再度押すかドラッグで停止</td></tr>
+</table>
+<p>地球視点に入ると放射点・星座線・星座名が自動 ON、離れると放射点は自動 OFF になります。</p><figure><img src="img/fig_north.jpg" alt="図4: 黄道面北 — 8回帰ぶんのダストトレイルと彗星軌道の全景" loading="lazy"><figcaption>図4: 黄道面北 — 8回帰ぶんのダストトレイルと彗星軌道の全景</figcaption></figure><figure><img src="img/fig_comet.jpg" alt="図5: 彗星視点の2画面モード(左=後方カメラ/右=前方カメラ)" loading="lazy"><figcaption>図5: 彗星視点の2画面モード(左=後方カメラ/右=前方カメラ)</figcaption></figure>
+
+<h3>地球視点の流星ショー</h3><figure><img src="img/fig_ground.jpg" alt="図6: 地上視点 — 放射点から四方八方へ流れるペルセウス座流星群(2026年8月13日)" loading="lazy"><figcaption>図6: 地上視点 — 放射点から四方八方へ流れるペルセウス座流星群(2026年8月13日)</figcaption></figure>
+<div class="note">流星は<b>活動期間内</b>(ペルセウス座群: 7月17日〜8月24日)の日付の
+ときだけ発生します。時間を進めて「流星群の季節」を体験してください。</div>
+<ul>
+<li>表示は ZHR=5,000 相当。流星は全天に出現し、経路の延長は必ず放射点を通ります</li>
+<li>放射点付近では遅く・短く・太く明るく、離れるほど速く・長く・細く暗く(実際の遠近効果)</li>
+<li><b>火球</b>(約7%): ひときわ明るい大流星。あとに<b>永続痕</b>(漂う光の筋)を残すことがあります</li>
+<li><b>流星クラスター</b>(約4%): 数秒間に多数の流星が同じ領域から平行に流れる珍現象</li>
+<li><b>静止流星</b>(約2%): 放射点の真芯で、動かない点がふっと光る「正面から来る流星」</li>
+<li>惑星は実際の<b>色と等級</b>で表示(金星は明るく、海王星はほぼ見えません)</li>
+</ul>
+
+<h3>時間操作</h3>
+<ul>
+<li>日付欄に任意の日付を入力(紀元前はマイナス年)。「今日」で現在へ</li>
+<li><b>■</b>: 押すと停止、もう一度押すと<b>実時間(×1)</b>で進行</li>
+<li><b>&lt; / &gt;</b>: 押すたびに ×2 → ×10 → ×100 → ×500 → ×1000 → ×5000 → ×10000</li>
+<li>スライダー: 中央=停止、左右で無段階の速度調整</li>
+</ul>
+
+<h3>粒子設定・言語</h3>
+<p>表示粒子数 10/25/50/100%(重い端末では減らしてください)、サイズ 大/中/小。
+右上のボタンで日本語⇄英語を切り替えます。</p>
+
+
+<h3 id="whatsnew11">バージョン 1.1 の新機能</h3>
+<p>1.1 では、論文の計算結果そのものをアプリの中で開けるようにしました。以下は
+1999 年 11 月 18 日のしし座流星群の大出現について、公開データから読み込んだ
+<b>モデルの予報と、実際の観測結果を突き合わせた</b>ものです。</p>
+
+<h4>公開データを直接読み込める</h4>
+<p>「モデル計算」のメニューに <b>「公開データを取得…」</b> が加わりました。押すと
+論文で公開しているしし座流星群のデータセット一覧が出て、選ぶとその場で取り込まれます。
+1998・1999・2000・2001・2002 年の元期整合データと 2009 年のデータが選べます。
+データを選ぶと予報年も自動で設定されます。</p>
+<figure><img src="img/fig_leo1999_orbit.jpg" alt="図: 1999年元期のしし座流星群データを読み込んだ黄道面北からの軌道図" loading="lazy"><figcaption>1999 年元期のデータを読み込んだところ。55P/テンペル・タットルが残した 1899・1932・1965・1998 年の 4 本のダストトレイルが、地球軌道の内側に伸びています</figcaption></figure>
+
+<h4>しし座流星群 2030–2035 年の予報を収録</h4>
+<p>論文の 2030 年代の予報を、アプリを開いたその場で見られます。各年は論文と同じく
+遭遇年ごとに元期を合わせたデータから計算した値です。</p>
+<figure><img src="img/fig_leo1999_zhr.jpg" alt="図: 1999年しし座流星群の ZHR プロファイル" loading="lazy"><figcaption><b>1999 年の予報（モデル）と観測結果の比較です。</b>モデルは 1899 年トレイルによる 11 月 18 日 03:08 UT の極大、ZHR 3863 を与えます。実際に観測された大出現は 02:02 UT、ZHR 3700 でした。予報の時刻・規模を、起きたことと突き合わせて確かめられます</figcaption></figure>
+
+<h4>ダストトレイル断面図は 2 種類</h4>
+<p>地球がトレイルのどこを通り抜けるのかを、2 つの図で確かめられます。</p>
+<figure><img src="img/fig_leo1999_section.jpg" alt="図: ダストトレイル断面図" loading="lazy"><figcaption>ダストトレイル断面図。横軸は地球の軌道に沿った距離、縦軸は地球軌道からの動径方向のずれです。1899 年トレイルだけが地球の通り道(青い線)に重なっているのが分かります</figcaption></figure>
+<figure><img src="img/fig_leo1999_ecliptic.jpg" alt="図: 黄道面図 X–Y" loading="lazy"><figcaption>黄道面図 X–Y。地球の軌道上の日付目盛りと、各トレイルの粒子の散らばりを同じ平面で見比べられます</figcaption></figure>
+
+<h4>そのほかの変更</h4>
+<ul>
+<li>下部バーの視点メニューが、いま選ばれている視点の名前を表示するようになりました</li>
+<li>「地上」の視点で、流星の出現頻度を ZHR 100 / 1000 / 5000 / 10000 / 100000 から選べるようになりました。1999 年のような大出現の空を再現できます</li>
+<li>データセット名を分かりやすくしました(元期・粒子数の表記を統一)</li>
+</ul>
+
+<h3>流星群予報</h3>
+<p>ペルセウス座流星群の <b>2026 年</b>の予報と、<b>しし座流星群の 2030–2035 年</b>の予報を収録しています(「モデル計算」のメニューから、論文で公開しているデータをさらに取り込むこともできます)。ZHR プロファイル(NASA MEM モデル/計算結果の分離表示、ダストトレイル別の色分け寄与)、ダストトレイル断面図(粒子散布と 1σ/2σ 誤差楕円)、黄道面図 X–Y を表示できます。予報値はあらかじめ計算したものを収録しており、本アプリに計算機能そのものは含まれません。</p>
+
+<h3>予報モデルについて</h3>
+<p>ダストトレイル予報は、母彗星の各近日点回帰で放出された塵を N 体積分
+(REBOUND/ReboundX、惑星摂動・輻射圧・ポインティング–ロバートソン効果)で現在まで
+追跡し、地球軌道との交点(ノード)での遭遇を評価します。</p>
+<ul>
+<li><b>放出モデル</b>: Crifo &amp; Rodionov (1997) のガス抗力終端速度則、サイズ分布
+dN ∝ a<sup>−u</sup> からの直接抽選、輻射圧パラメータ β = 5.74×10<sup>−4</sup>/(ρa)</li>
+<li><b>母彗星の位置</b>: 塵の放出地点は JPL Horizons 暦(回帰ごとの観測フィット解)に
+基準を合わせています。自前の逆積分では 55P の場合 130 年で 0.08–0.15 au、1700 年以前
+では 1 au 以上ずれ、これがトレイル位置の系統誤差になるためです</li>
+<li><b>年間背景</b>: NASA MEO(Moorhead et al. 2019)の実測活動プロファイル</li>
+<li><b>信頼度クラス</b>: 予報値には A(0.5–2.0 倍)/ B(0.29–3.5 倍)/ C(0.1–10 倍)の
+幅を付記します。クラスは流星群ごとに過去事例の再現成績から決めています</li>
+</ul>
+<p>各流星群の諸元(活動期間・極大・ZHR・V∞・光度比 r・放射点)は IMO Meteor Shower
+Calendar に準拠しています。</p>
+
+<h3>予報モデルの出典</h3>
+<p>しし座流星群の予報モデルと 2030–2035 年の予報値は、次の論文に基づいています。
+本稿は現在 <i>Icarus</i> に投稿中です。</p>
+<blockquote>Shinsuke Abe (2026) &ldquo;A calibrated dust-trail model of the Leonid
+meteoroid stream and forecasts of the 2031&ndash;2035 encounters&rdquo;,
+submitted to <i>Icarus</i>.</blockquote>
+<p>各年の予報は、論文と同じく<b>遭遇年ごとに元期を合わせたデータセット</b>から計算した
+値を収録しています。単一のスナップショットから全年を読むと、惑星摂動でトレイルの節が
+動いた分が反映されず、2034 年はどちらのトレイルが優勢かが入れ替わります。計算に使った
+データセットは Zenodo で公開しています(DOI:
+<a href="https://doi.org/10.5281/zenodo.22004211" style="color:#86b6ef">10.5281/zenodo.22004211</a>)。</p>
+
+
+<h2 id="en">English Manual</h2>
+<p>Meteorium visualises the dust trails behind meteor showers in 3D, based on
+real orbital dynamics. This app ships with <b>60,000 dust grains
+from eight perihelion returns (1079–1992) of comet 109P/Swift-Tuttle</b>, the
+parent of the Perseids, integrated with REBOUND/ReboundX (planetary gravity + solar
+radiation pressure) against NASA's Deep Star Maps 2020. All computation
+runs on your device; no data
+collection, no ads.</p>
+
+<h3>Basics</h3><figure><img src="img/fig_overview.jpg" alt="Fig. 1: Screen layout — 3D view, side panel, bottom time bar" loading="lazy"><figcaption>Fig. 1: Screen layout — 3D view, side panel, bottom time bar</figcaption></figure>
+<ul>
+<li>Drag to rotate, pinch/wheel to zoom. Panels move by their grips.</li>
+<li>The <b class="k">▼</b> button on the bottom bar collapses it to a single
+▲ button; in landscape the speed slider gets its own full-width row, and
+rotating the device always brings the panels back on screen.</li>
+<li>Trail legend chips toggle each ejection-year trail.</li>
+<li>Display toggles: Milky Way, constellation lines/names, comet/Earth labels,
+terrestrial/giant planet names, planets, orbit lines, particles, radiant.</li>
+</ul>
+
+<h3>Viewpoints</h3>
+<ul>
+<li><b>Ecliptic N/S</b> — top/bottom view, each press rotates 45°.</li>
+<li><b>Ecl. latitude</b> — fixes the current longitude, steps latitude by 30°.</li>
+<li><b>Sun</b> — pinned to the Sun; presses cycle vernal equinox → comet
+tracking → Earth tracking (caption top-left; tracking survives drags).</li>
+<li><b>Earth</b> — ground view toward the radiant with a live meteor shower
+(ZHR 5,000) during the activity period (Jul 17 – Aug 24): meteors all over the
+sky, perspective-true speeds and brightness, fireballs with persistent trains,
+meteor clusters, stationary meteors, and planets at true colour/magnitude.</li>
+<li><b>Comet</b> — rides the comet; presses cycle front → rear → split screen
+(rear|front) with captions.</li>
+<li><b>Free view</b> — an auto tour changing view and zoom every 10 s.</li>
+</ul>
+
+<figure><img src="img/fig_ground.jpg" alt="Fig. 2: Ground view — Perseids radiating from the radiant (2026-08-13)" loading="lazy"><figcaption>Fig. 2: Ground view — Perseids radiating from the radiant (2026-08-13)</figcaption></figure><h3>Time</h3>
+<p>Date entry (BC as negative years), Today, ■ toggles stop ⇄ real time (×1),
+arrows step ×2 → ×10 → … → ×10000, stepless slider.</p>
+
+
+<h3 id="whatsnew11en">What's new in 1.1</h3>
+<p>Version 1.1 opens the paper's own results inside the app. The figures below set the
+model's forecast for the 1999 November 18 Leonid storm, loaded from the published
+data, <b>against what was actually observed that night</b>.</p>
+
+<h4>Published data, loaded in the app</h4>
+<p>The Model calculation menu now offers <b>Fetch published data…</b>. It lists the
+Leonid datasets published with the paper — the epoch-matched simulations for 1998,
+1999, 2000, 2001, 2002 and 2009 — and pulls in whichever you pick. Choosing a
+dataset also sets the forecast year for you.</p>
+<figure><img src="img/fig_leo1999_orbit_en.jpg" alt="Fig.: the 1999 epoch-matched Leonid dataset seen from ecliptic north" loading="lazy"><figcaption>The 1999 epoch-matched dataset, just loaded. Four dust trails left by 55P/Tempel-Tuttle in 1899, 1932, 1965 and 1998 reach inside Earth's orbit.</figcaption></figure>
+
+<h4>The Leonid forecasts for 2030-2035</h4>
+<p>The manuscript's 2030s forecasts ship with the app. Each year is computed, as in
+the manuscript, from a dataset matched to that encounter's epoch.</p>
+<figure><img src="img/fig_leo1999_zhr_en.jpg" alt="Fig.: ZHR profile of the 1999 Leonids" loading="lazy"><figcaption><b>The 1999 forecast set against what was observed.</b> The model puts the maximum at 03:08 UT on November 18, from the 1899 trail, at ZHR 3863; the storm itself was recorded at 02:02 UT, ZHR 3700. The predicted time and size can be checked against what actually happened.</figcaption></figure>
+
+<h4>Two cross-section views</h4>
+<p>Two figures show where in the trail the Earth actually passes.</p>
+<figure><img src="img/fig_leo1999_section_en.jpg" alt="Fig.: dust-trail cross-section" loading="lazy"><figcaption>The dust-trail cross-section: distance along Earth's orbit across, radial miss distance up. Only the 1899 trail sits on Earth's path (the blue line).</figcaption></figure>
+<figure><img src="img/fig_leo1999_ecliptic_en.jpg" alt="Fig.: ecliptic-plane X-Y view" loading="lazy"><figcaption>The ecliptic-plane X-Y view, putting the dated ticks along Earth's orbit and the grain scatter of each trail on the same plane.</figcaption></figure>
+
+<h4>Also in 1.1</h4>
+<ul>
+<li>The viewpoint menu on the bottom bar now shows which viewpoint is in effect.</li>
+<li>In the ground view the meteor rate can be set to ZHR 100 / 1000 / 5000 / 10000 / 100000, so a storm sky like 1999 can be reproduced.</li>
+<li>Clearer dataset names (epoch and grain count written the same way throughout).</li>
+</ul>
+
+<h3>About the forecast model</h3>
+<p>Trail forecasts integrate the dust released at each perihelion return of the
+parent comet forward to the present with REBOUND/ReboundX (planetary
+perturbations, radiation pressure, Poynting–Robertson drag), then evaluate the
+encounter at the trail's ecliptic node.</p>
+<ul>
+<li><b>Ejection</b>: Crifo &amp; Rodionov (1997) gas-drag terminal-speed law,
+sizes drawn directly from dN ∝ a<sup>−u</sup>, radiation-pressure parameter
+β = 5.74×10<sup>−4</sup>/(ρa)</li>
+<li><b>Parent position</b>: dust ejection sites are anchored to the JPL Horizons
+ephemeris, which uses an orbit solution fitted to each historical apparition.
+A self-consistent back-integration of 55P instead drifts 0.08–0.15 au over
+130 yr and more than 1 au before 1700, which biases every trail generated
+from it.</li>
+<li><b>Annual background</b>: measured activity profiles from NASA MEO
+(Moorhead et al. 2019)</li>
+<li><b>Confidence class</b>: each forecast carries a band — A (0.5–2.0×),
+B (0.29–3.5×) or C (0.1–10×) — set per shower from how well the model
+reproduces that shower's documented past encounters.</li>
+</ul>
+<p>Shower parameters follow the IMO Meteor Shower Calendar.</p>
+
+<h3>Source of the forecast model</h3>
+<p>The Leonid forecast model, and the 2030&ndash;2035 values shipped with the app,
+come from the following manuscript, currently submitted to <i>Icarus</i>:</p>
+<blockquote>Shinsuke Abe (2026) &ldquo;A calibrated dust-trail model of the Leonid
+meteoroid stream and forecasts of the 2031&ndash;2035 encounters&rdquo;,
+submitted to <i>Icarus</i>.</blockquote>
+<p>Each year is computed, as in the manuscript, from a dataset matched to the epoch
+of that encounter. Reading every year off a single snapshot instead leaves out the
+planetary motion of the trail nodes since then, which reverses which trail dominates
+the 2034 encounter. The datasets behind the computation are published at Zenodo (DOI:
+<a href="https://doi.org/10.5281/zenodo.22004211" style="color:#86b6ef">10.5281/zenodo.22004211</a>).</p>
+
+
+<h2 id="privacy">プライバシーポリシー / Privacy Policy</h2>
+<p>本アプリは、個人情報を含むいかなるデータも収集・送信・保存しません。完全に
+通信は利用者が公開データを取得するときだけで、広告・トラッキング・解析ツール・
+アカウント機能はありません。
+設定はお使いの端末内にのみ保存されます。</p>
+<p>The app does not collect, transmit, or store any data. It works fully
+on your device, going online only when you fetch the published datasets,
+with no ads, tracking, analytics, or accounts. Preferences are stored
+only on your device.</p>
+<p>お問い合わせ / Contact: avellsky@gmail.com</p>
+
+<footer>© Meteorium, Avellsky — Last updated 2026-08-25</footer>
+</div></body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<title>Meteorium for Mac — ユーザーマニュアル / User Manual</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0d0d0d; color: #c3c2b7;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.75; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 28px 20px 60px; }
+  h1 { color: #fff; font-size: 26px; margin: 8px 0 2px; }
+  h2 { color: #fff; font-size: 19px; margin-top: 34px;
+    border-bottom: 1px solid rgba(255,255,255,.14); padding-bottom: 6px; }
+  h3 { color: #e8e7df; font-size: 15px; margin-top: 22px; }
+  .sub { color: #898781; margin-bottom: 20px; }
+  .masthead { display: flex; align-items: center; gap: 18px;
+    margin-bottom: 20px; }
+  .masthead img { width: 96px; height: 96px; border-radius: 22px; flex: none; }
+  .masthead h1 { margin-top: 0; }
+  .masthead .sub { margin-bottom: 0; }
+  @media (max-width: 520px) {
+    .masthead { gap: 14px; }
+    .masthead img { width: 68px; height: 68px; border-radius: 16px; }
+  }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid rgba(255,255,255,.14); padding: 7px 10px;
+    text-align: left; vertical-align: top; }
+  th { color: #fff; background: rgba(255,255,255,.05); white-space: nowrap; }
+  code, b.k { color: #86b6ef; font-weight: 600; }
+  kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px; color: #e8e7df; background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.18); border-radius: 5px;
+    padding: 1px 6px; white-space: nowrap; }
+  ul { padding-left: 22px; }
+  li { margin: 3px 0; }
+  .nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 6px; }
+  .nav a { color: #86b6ef; text-decoration: none; font-size: 13px;
+    border: 1px solid rgba(57,135,229,.4); border-radius: 999px;
+    padding: 4px 14px; }
+  .note { background: rgba(57,135,229,.10); border: 1px solid rgba(57,135,229,.35);
+    border-radius: 10px; padding: 10px 14px; font-size: 14px; }
+  footer { margin-top: 48px; color: #898781; font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,.14); padding-top: 14px; }
+  figure { margin: 18px 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.14); }
+  figcaption { font-size: 12px; color: #898781; margin-top: 6px;
+    text-align: center; }
+</style>
+</head>
+<body><div class="wrap">
+
+<header class="masthead">
+  <img src="../icon.png" alt="">
+  <div>
+    <h1>Meteorium for Mac</h1>
+    <div class="sub">流星ダストトレイル・ビューア — Mac 版マニュアル/
+    Mac Edition Manual (Free Edition)</div>
+  </div>
+</header>
+<div class="nav">
+  <a href="#ja">日本語</a><a href="#en">English</a><a href="./">共通マニュアル / Common manual</a>
+</div>
+
+<h2 id="ja">日本語 — Mac 版マニュアル</h2>
+<p>Meteorium は、流星群のもとになる「ダストトレイル」(彗星が軌道上に残した塵の帯)を
+科学計算に基づいて 3D 表示する天文アプリです。本アプリには、ペルセウス座流星群の母彗星
+109P/スウィフト・タトルが残した <b>8回帰ぶん(1079・1209・1344・1478・1609・1736・
+1862・1992年)のダストトレイル 60,000 粒子</b>が収録されています。</p>
+<div class="note">Mac 版は iPhone / iPad 版と同じ計算結果・同じ機能を macOS の
+ウインドウで表示するものです。<b>このページは Mac 版に固有の操作だけ</b>をまとめて
+います。機能そのものの説明は<a href="./" style="color:#86b6ef">共通マニュアル</a>を
+ご覧ください。</div>
+<ul>
+<li>動作環境: <b>macOS 15.6 以降</b>(Apple シリコン / Intel 両対応のユニバーサルアプリ)</li>
+<li>計算・描画はすべて端末内。データ収集・広告なし(公開データを取得するときだけ通信します)</li>
+<li>iPhone / iPad 版と同じ App なので、同じ Apple ID なら追加の費用なく全デバイスで使えます</li>
+</ul>
+
+<h3>1. ウインドウと画面の構成</h3>
+<figure><img src="img/fig_mac_overview.jpg" alt="図1: Mac 版の画面構成 — 中央が3D表示、右がパネル、下部が時間操作バー" loading="lazy"><figcaption>図1: Mac 版の画面構成 — 中央が 3D 表示、右がパネル、下部が時間操作バー</figcaption></figure>
+<p>Mac 版はふつうの macOS ウインドウとして開きます。ウインドウの端をドラッグして
+自由な大きさに変えられ、画面の広さに合わせて 3D 表示も追従します。</p>
+<table>
+<tr><th>場所</th><th>内容</th></tr>
+<tr><td>中央</td><td>3D 表示(ドラッグ=視点回転、ホイール/トラックパッド=ズーム)</td></tr>
+<tr><td>右上</td><td>EN/JP(言語切替)、ⓘ(パネル開閉)</td></tr>
+<tr><td>右パネル</td><td>データセット・ダストトレイル凡例・表示設定・視点・粒子設定</td></tr>
+<tr><td>下部バー</td><td>日時(UT)・日付入力・今日・視点・時間操作</td></tr>
+</table>
+<p><b>iPhone 版との違い</b>: 起動時のウインドウ幅が 900 ピクセル以上あると、右パネルが
+最初から開いた状態で表示されます(iPhone では ⓘ ボタンで開きます)。パネルと下部バーは
+つまみ(グリップ)をドラッグしてウインドウ内の好きな位置へ移動でき、パネル下端の
+つまみで長さも調整できます。</p>
+<ul>
+<li>緑ボタン(または <kbd>control</kbd> + <kbd>⌘</kbd> + <kbd>F</kbd>)でフルスクリーン
+表示になります。大きな画面ほど粒子の立体構造が見やすくなります</li>
+<li>ウインドウ幅を 640 ピクセル未満まで狭めると、iPhone 版と同じ縦長のレイアウトに
+切り替わります</li>
+<li>下部バー右上の <b>▼</b> ボタンでバー全体を畳めます(<b>▲</b> で復元)</li>
+</ul>
+
+<h3>2. マウス / トラックパッドの操作</h3>
+<table>
+<tr><th>操作</th><th>動作</th></tr>
+<tr><td>ドラッグ</td><td>視点の回転</td></tr>
+<tr><td>スクロールホイール</td><td>ズームイン / ズームアウト</td></tr>
+<tr><td>トラックパッドの2本指スワイプ</td><td>ズームイン / ズームアウト</td></tr>
+<tr><td>トラックパッドのピンチ</td><td>ズームイン / ズームアウト</td></tr>
+<tr><td>つまみをドラッグ</td><td>パネル・下部バーの移動</td></tr>
+</table>
+<p>地上視点(第5章)では、ドラッグが「空を見回す」操作、スクロールが視野角(画角)の
+変更になります。狭くすると望遠、広くすると広角の見え方です。</p>
+
+<h3>3. キーボード</h3>
+<p>Meteorium はマウス操作だけで完結しますが、Mac 版では次のキーが使えます。</p>
+<table>
+<tr><th>キー</th><th>動作</th></tr>
+<tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>流星群予報の<b>ダストトレイル断面図</b>を
+左右にスクロール(予報ウインドウを開いているときのみ)</td></tr>
+<tr><td><kbd>⌘</kbd> + <kbd>W</kbd></td><td>ウインドウを閉じる</td></tr>
+<tr><td><kbd>⌘</kbd> + <kbd>Q</kbd></td><td>Meteorium を終了</td></tr>
+<tr><td><kbd>control</kbd> + <kbd>⌘</kbd> + <kbd>F</kbd></td><td>フルスクリーンの切り替え</td></tr>
+</table>
+<p>日付欄はクリックしてキーボードから直接入力できます(<code>YYYY-MM-DD</code> 形式)。</p>
+
+<h3>4. 流星群予報の表示</h3>
+<figure><img src="img/fig_mac_forecast.jpg" alt="図2: 流星群予報ウインドウ — 上が ZHR プロファイル、下がダストトレイル断面図" loading="lazy"><figcaption>図2: 流星群予報ウインドウ — 上が ZHR プロファイル、下がダストトレイル断面図</figcaption></figure>
+<p>本アプリには<b>ペルセウス座流星群の 2026 年の予報</b>が収録されています。右パネルの
+「予報計算」ボタンを押すと、上に ZHR プロファイル、下にダストトレイル断面図を並べた
+予報ウインドウが開きます。</p>
+<ul>
+<li>上のグラフ: NASA MEM モデル(年間背景)と本モデルの計算結果、および
+ダストトレイル別の色分け寄与</li>
+<li>下のグラフ: 地球がトレイルを横切る位置を表した断面図。粒子の散布と 1σ / 2σ の
+誤差楕円を表示します</li>
+<li>「黄道面図 X–Y」ボタンで、黄道面上の位置関係を別ウインドウで開けます
+(拡大縮小・ドラッグ移動に対応)</li>
+</ul>
+<p>Mac の広い画面ではグラフの目盛りや文字が読みやすく、<kbd>←</kbd> / <kbd>→</kbd> キーで
+断面図を左右に送りながら細部を確認できます。</p>
+<p>収録しているのは 2026 年のペルセウス座流星群と、しし座流星群の 2030–2035 年です。後者は
+<i>Icarus</i> に投稿中の論文と同じ、遭遇年ごとに元期を合わせたデータから計算した値です。
+詳しくは<a href="./" style="color:#86b6ef">共通マニュアル</a>の「予報モデルの出典」を
+ご覧ください。</p>
+
+<h3>5. 地上視点の流星ショー</h3>
+<figure><img src="img/fig_mac_ground.jpg" alt="図3: 地上視点 — 放射点から流星が流れる" loading="lazy"><figcaption>図3: 地上視点 — 放射点から流星が流れる</figcaption></figure>
+<p>視点の「地上」を選ぶと、地上から放射点方向を見上げた観察視点になります。活動期間
+(ペルセウス座群: 7/17〜8/24)の日付では、放射点から流星が流れる様子が再現されます
+(表示は ZHR=5,000 相当)。</p>
+<p>Mac の大画面では、火球・永続痕・流星クラスターといった珍しい現象が起きた瞬間も
+見逃しにくくなります。フルスクリーンにして時間を進めれば、そのままスクリーンセーバーの
+ように眺められます。</p>
+
+<h3>6. iPhone / iPad 版との違いまとめ</h3>
+<table>
+<tr><th></th><th>iPhone / iPad</th><th>Mac</th></tr>
+<tr><td>視点の回転</td><td>1本指ドラッグ</td><td>マウスドラッグ</td></tr>
+<tr><td>ズーム</td><td>ピンチ</td><td>ホイール / 2本指スワイプ / ピンチ</td></tr>
+<tr><td>パネルの初期状態</td><td>畳まれている(ⓘ で開く)</td><td>幅 900px 以上なら開いている</td></tr>
+<tr><td>画面の大きさ</td><td>端末固定</td><td>ウインドウ可変・フルスクリーン可</td></tr>
+<tr><td>画面の回転</td><td>縦横で自動再配置</td><td>なし(ウインドウのリサイズで追従)</td></tr>
+<tr><td>キーボード</td><td>日付入力のみ</td><td>日付入力 + 断面図スクロール</td></tr>
+</table>
+<p>収録データ・計算結果・表示内容は全プラットフォームで同一です。</p>
+
+<h3>7. うまく動かないときは</h3>
+<ul>
+<li><b>動作が重い</b>: 右パネルの「表示粒子数」を 25% や 10% に下げてください。
+ウインドウを小さくするか、フルスクリーンを解除するのも効果があります</li>
+<li><b>画面が真っ暗なまま</b>: ウインドウをいったんリサイズしてみてください。それでも
+直らない場合は <kbd>⌘</kbd> + <kbd>Q</kbd> で終了して再度起動してください</li>
+<li><b>表示が以前のまま更新されない</b>: App Store でアップデートしたあとは、アプリを
+完全に終了(<kbd>⌘</kbd> + <kbd>Q</kbd>)してから起動し直してください</li>
+</ul>
+
+<h2 id="en">English — Mac Edition Manual</h2>
+<p>Meteorium is an astronomy app that renders the "dust trails" behind meteor
+showers — the ribbons of comet dust left along a comet's orbit — in 3D, from real
+orbital computation. This app ships the <b>60,000 dust grains of eight
+trails (1079, 1209, 1344, 1478, 1609, 1736, 1862 and 1992)</b> released by
+109P/Swift-Tuttle, the parent comet of the Perseids.</p>
+<div class="note">The Mac edition shows exactly the same computation and the same
+features as the iPhone / iPad edition, in a macOS window. <b>This page covers only
+what is specific to the Mac.</b> For the features themselves, see the
+<a href="./" style="color:#86b6ef">common manual</a>.</div>
+<ul>
+<li>Requires <b>macOS 15.6 or later</b> (universal app: Apple silicon and Intel)</li>
+<li>All computation on your device, with no data collection and no ads (it goes online only to fetch the published datasets)</li>
+<li>Same App as the iPhone / iPad edition, so it runs on all your devices under the
+same Apple ID at no extra cost</li>
+</ul>
+
+<h3>1. The window and its layout</h3>
+<p>Meteorium opens as an ordinary macOS window. Drag any edge to resize it — the
+3D view follows the window.</p>
+<table>
+<tr><th>Where</th><th>What</th></tr>
+<tr><td>Centre</td><td>3D view (drag to rotate, wheel / trackpad to zoom)</td></tr>
+<tr><td>Top right</td><td>EN/JP (language), ⓘ (show / hide the panel)</td></tr>
+<tr><td>Right panel</td><td>Dataset, dust-trail legend, display options, viewpoints, particles</td></tr>
+<tr><td>Bottom bar</td><td>Date and time (UT), date entry, Today, viewpoint, time controls</td></tr>
+</table>
+<p><b>Difference from the iPhone:</b> when the window opens at least 900 pixels
+wide, the right panel starts out open (on iPhone you open it with the ⓘ button).
+Both the panel and the bottom bar can be dragged around the window by their grip,
+and the grip at the bottom of the panel adjusts its length.</p>
+<ul>
+<li>The green button (or <kbd>control</kbd> + <kbd>⌘</kbd> + <kbd>F</kbd>) goes full
+screen. The larger the display, the easier it is to read the three-dimensional
+structure of the trails</li>
+<li>Narrowing the window below 640 pixels switches to the tall iPhone layout</li>
+<li>The <b>▼</b> button at the top right of the bottom bar folds the bar away
+(<b>▲</b> brings it back)</li>
+</ul>
+
+<h3>2. Mouse and trackpad</h3>
+<table>
+<tr><th>Gesture</th><th>Action</th></tr>
+<tr><td>Drag</td><td>Rotate the view</td></tr>
+<tr><td>Scroll wheel</td><td>Zoom in / out</td></tr>
+<tr><td>Two-finger swipe (trackpad)</td><td>Zoom in / out</td></tr>
+<tr><td>Pinch (trackpad)</td><td>Zoom in / out</td></tr>
+<tr><td>Drag a grip</td><td>Move the panel or the bottom bar</td></tr>
+</table>
+<p>In the ground view (section 5) dragging looks around the sky and scrolling
+changes the field of view — narrow for a telephoto look, wide for a wide-angle one.</p>
+
+<h3>3. Keyboard</h3>
+<p>Everything can be done with the mouse alone, but these keys are available on
+the Mac:</p>
+<table>
+<tr><th>Key</th><th>Action</th></tr>
+<tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Scroll the <b>dust-trail cross-section</b>
+left / right (only while the forecast window is open)</td></tr>
+<tr><td><kbd>⌘</kbd> + <kbd>W</kbd></td><td>Close the window</td></tr>
+<tr><td><kbd>⌘</kbd> + <kbd>Q</kbd></td><td>Quit Meteorium</td></tr>
+<tr><td><kbd>control</kbd> + <kbd>⌘</kbd> + <kbd>F</kbd></td><td>Toggle full screen</td></tr>
+</table>
+<p>Click the date field to type a date directly, in <code>YYYY-MM-DD</code> form.</p>
+
+<h3>4. The meteor shower forecast</h3>
+<p>This app ships the <b>2026 forecast for the Perseids</b>. Press
+"Forecast" in the right panel and a window opens with the ZHR profile on top and
+the dust-trail cross-section below.</p>
+<ul>
+<li>Upper chart: the NASA MEM model (the annual background) and this model's
+result, with each dust trail's contribution in its own colour</li>
+<li>Lower chart: where the Earth cuts through the trails, with the grains scattered
+around the encounter point and their 1σ / 2σ error ellipses</li>
+<li>The "Ecliptic plane X–Y" button opens the geometry in a separate window, which
+you can zoom and drag</li>
+</ul>
+<p>The Mac's larger display makes the tick labels and annotations easy to read, and
+<kbd>←</kbd> / <kbd>→</kbd> pans the cross-section while you inspect the detail.</p>
+<p>The bundled forecasts are the 2026 Perseids and the Leonids for 2030&ndash;2035, the
+latter computed as in the manuscript submitted to <i>Icarus</i>, each year from a dataset
+matched to that encounter's epoch. See the
+<a href="./" style="color:#86b6ef">common manual</a> for the citation.</p>
+
+<h3>5. The meteor show in the ground view</h3>
+<p>Choosing the "Ground" viewpoint puts you on the ground, looking towards the
+radiant. On dates inside the activity period (Perseids: Jul 17 – Aug 24) meteors
+stream out of the radiant, rendered at the equivalent of ZHR = 5,000.</p>
+<p>On a large display it is much harder to miss the rarer events — fireballs,
+persistent trains and meteor clusters. Go full screen, let time run, and it doubles
+as a screen saver.</p>
+
+<h3>6. Differences from the iPhone / iPad edition</h3>
+<table>
+<tr><th></th><th>iPhone / iPad</th><th>Mac</th></tr>
+<tr><td>Rotate</td><td>One-finger drag</td><td>Mouse drag</td></tr>
+<tr><td>Zoom</td><td>Pinch</td><td>Wheel / two-finger swipe / pinch</td></tr>
+<tr><td>Panel at launch</td><td>Folded (ⓘ opens it)</td><td>Open when at least 900 px wide</td></tr>
+<tr><td>Display size</td><td>Fixed by the device</td><td>Resizable window, full screen</td></tr>
+<tr><td>Screen rotation</td><td>Re-lays out for portrait / landscape</td><td>None (follows the window size)</td></tr>
+<tr><td>Keyboard</td><td>Date entry only</td><td>Date entry + cross-section scrolling</td></tr>
+</table>
+<p>The bundled data, the computation and everything shown are identical on every
+platform.</p>
+
+<h3>7. If something goes wrong</h3>
+<ul>
+<li><b>Sluggish rendering</b> — lower "Particles shown" in the right panel to 25% or
+10%. Making the window smaller, or leaving full screen, also helps</li>
+<li><b>The view stays black</b> — resize the window once. If that does not help,
+quit with <kbd>⌘</kbd> + <kbd>Q</kbd> and start the app again</li>
+<li><b>An update does not seem to take effect</b> — after updating from the App
+Store, quit the app completely (<kbd>⌘</kbd> + <kbd>Q</kbd>) and launch it again</li>
+</ul>
+
+<h2 id="privacy">プライバシーポリシー / Privacy Policy</h2>
+<p>本アプリは、個人情報を含むいかなるデータも収集・送信・保存しません。完全に
+通信は利用者が公開データを取得するときだけで、広告・トラッキング・解析ツール・
+アカウント機能はありません。
+設定はお使いの端末内にのみ保存されます。</p>
+<p>The app does not collect, transmit, or store any data. All computation runs
+on your device, going online only when you fetch the published datasets, with no
+ads, tracking, analytics, or accounts. Preferences are stored only on your
+device.</p>
+<p>お問い合わせ / Contact: avellsky@gmail.com</p>
+
+<footer>© Meteorium, Avellsky — Last updated 2026-08-13</footer>
+</div></body>
+</html>
